@@ -1,116 +1,66 @@
 <?php
 
+    class conta
+    {
+        
+        private $numero;
+        private $agencia;
+        private $proprietario;
+        private $saldo;
+        private $limite;
 
-            //*Classe
-            class conta {
+      
+        public function __construct(){}
 
-                private $numero;
-                private $agencia;
-                private $proprietario;
-                private $saldo;
-                private $limite;
-    
-
-            }
-
-            //*Create
-            public function create($_numero, $_agencia, $_proprietario, $_saldo, $_limite)
-            {
-                $this->numero = $_numero;
-                $this->agencia = $_agencia;
-                $this->proprietario = $_proprietario;
-                $this->saldo = $_saldo;
-                $this->limite = $_limite;
-    
-    
-            }
-
-            //*Sets
-            public function set_Numero($_numero)
+        public function create($_numero, $_agencia, $_proprietario, $_saldo, $_limite)
         {
             $this->numero = $_numero;
-        }
-
-        public function set_Agencia($_agencia)
-        {
             $this->agencia = $_agencia;
-        }
-
-        public function set_Proprietario($_proprietario)
-        {
             $this->proprietario = $_proprietario;
-        }
-
-        public function set_Saldo($_saldo)
-        {
             $this->saldo = $_saldo;
-        }
-
-        public function set_Limite($_limite)
-        {
             $this->limite = $_limite;
         }
 
 
-
-        //*Return
-        public function get_Numero()
-        {
-            return $this->numero;
-        }
-
-        public function get_Agencia()
-        {
-            return $this->agencia;
-        }
-
-        public function get_Proprietario()
-        {
-            return $this->proprietario;
-        }
-
-        public function get_Saldo()
+        public function getSaldo()
         {
             return $this->saldo;
         }
 
-        public function get_Limite()
+        public function setSaldo($_saldo)
+        {
+            $this->saldo = $_saldo;
+        }
+
+        public function getLimite()
         {
             return $this->limite;
         }
 
+        public function setLimite($_limite)
+        {
+            $this->limite = $_limite;
+        }
 
-         //*Funções específicas da classe
+        public function depositar($_valor)
+        {
+          
+            $this->saldo += $_valor;
+            return $this->saldo;
+        }
 
-        {public function depositar($_valor)
+        public function sacar($_valor)
+        {
+            if ($this->saldo + $this->limite >= $_valor)
             {
-                $this->saldo += $_valor;
-                $this->get_Saldo();
-                echo "Seu saldo é de" . $this->saldo;
+                $this->saldo -= $_valor;
+                return $this->saldo;
             }
-            public function sacar($_valor)
-            {
-                if ($this->saldo < $_valor) 
-                {
-                    $this->saldo - $_valor;
-                    echo "Seu saldo após o saque é de" . $this->saldo;
-                }
+            else {
+                return false;
             }
-        
-            }
+        }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+    }
 
 ?>
