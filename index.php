@@ -25,26 +25,31 @@
     <label for="nome">Limite</label>
     <input type="text" name="limite">
     <br>
+    <input type="submit" value="Depositar">
     <input type="submit" value="Sacar">
 </form>
 
     <?php
         include("class/conta.php");
 
-        if (isset($_GET["numero"]))
+
+        if (isset($_GET["saldo"]))
         {
-            $conta = new conta();
+            $sal = $_GET["saldo"];
             
-            $conta->create($_GET["numero"], $_GET["agencia"], $_GET["proprietario"], 
-                            $_GET["saldo"], $_GET["limite"]);
+            $sal + 2000;
 
-            $conta->depositar();
+            echo 
+        
 
-            $dog3->set_Nome("Jujuba");
-            $dog3->latir();
-            
-            echo "<ul><li>" . $dog3->get_Raca() . "</li></ul>";
+        else
+        {
+            $sal 
+            echo Você depositou $saldo
         }
+
+    }
+
 
     ?>
 

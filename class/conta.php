@@ -82,21 +82,22 @@
 
          //*Funções específicas da classe
 
-        public function depositar($_saldo) 
-        {
-            echo $this->proprietario == $_saldo ? 
-                                "$this->saldo você depositou!. <br>" : 
-                                
-        }
-
-
-        public function sacar($_saldo) 
-        {
-            echo $this->proprietario == $_saldo ? 
-                                "$this->saldo você sacou!. <br>" : 
-                                
-        }
-
+        {public function depositar($_valor)
+            {
+                $this->saldo += $_valor;
+                $this->get_Saldo();
+                echo "Seu saldo é de" . $this->saldo;
+            }
+            public function sacar($_valor)
+            {
+                if ($this->saldo < $_valor) 
+                {
+                    $this->saldo - $_valor;
+                    echo "Seu saldo após o saque é de" . $this->saldo;
+                }
+            }
+        
+            }
 
 
 
